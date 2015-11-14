@@ -19,34 +19,39 @@ public class Solution {
         return false;
 
 
-        int[] alpha = new int[26];
+        Hashtable<Character,Integer> h= new Hashtable<Character,Integer>(26);
         int i,j,c;
 
 
         for(i=0;i<slen;i++)
         {
-            j=s.charAt(i);
-            j=j-97;
-
-
-            alpha[j]++;
+          if(h.containsKey(s.charAt(i)))
+          {
+            c=h.get(s.charAt(i));
+            h.put(s.charAt(i),c + 1);
+          }
+            else
+            h.put(s.charAt(i),1);
         }
 
 
         for(i=0;i<tlen;i++)
         {
-                j=t.charAt(i);
-                j=j-97;
-                if(alpha[j]>0)
-                {
-                    alpha[j]--;
+            if(h.containsKey(t.charAt(i)))
+            {
+                j=h.get(t.charAt(i));
 
+                if(j>0)
+                {
+                j--;
+                h.put(t.charAt(i),j);
                 }
                 else
                 return false;
+            }
+            else
+            return false;
         }
-
-
 
 
 
