@@ -59,3 +59,54 @@ public class Solution {
             return false;
     }
 }
+
+
+
+/*
+Alternative result :
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+   public boolean isSymmetric(TreeNode root) {
+
+       // flip tree around root node
+      // TreeNode rTree = flipTree(root);
+
+       // compare if those two trees are identical
+       return compareTree(root, root);
+
+    }
+
+    private TreeNode flipTree(TreeNode root) {
+
+        if (root == null)
+            return null;
+
+        TreeNode rTree = new TreeNode(root.val);
+        rTree.left = flipTree(root.right);
+        rTree.right = flipTree(root.left);
+
+        return rTree;
+    }
+
+    private boolean compareTree(TreeNode tr1, TreeNode tr2) {
+        if (tr1 == null && tr2 == null)
+            return true;
+        else if ((tr1 != null && tr2 != null) && (tr1.val == tr2.val))
+            return compareTree(tr1.left, tr2.right) && compareTree(tr1.right, tr2.left);
+        else 
+            return false;
+    }
+}
+
+
+
+*/
