@@ -42,3 +42,26 @@ public class Solution {
     return res;
 }
 }
+
+
+
+
+
+//recursive inorder
+//public class Solution {
+//    List<Integer> res = new LinkedList<Integer>();
+//    public List<Integer> inorderTraversal(TreeNode root) {
+//    
+//    if (root == null) return res;
+//    
+//    if(root.left != null)
+//        res=inorderTraversal(root.left);
+//    
+//    res.add(root.val);
+//    
+//    if(root.right!= null)
+//        res=inorderTraversal(root.right);
+//        
+//    return res;
+//}
+//}
