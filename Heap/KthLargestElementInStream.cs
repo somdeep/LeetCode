@@ -82,3 +82,5 @@ public class KthLargest
  * KthLargest obj = new KthLargest(k, nums);
  * int param_1 = obj.Add(val);
  */
+
+ image.png
